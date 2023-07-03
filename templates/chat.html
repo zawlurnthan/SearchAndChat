@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Chatting{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Chatting with AI</h1>
+        <div class="input-box">
+            <h2>You</h2>
+            <form action="/chat" method="POST">
+                <input type="text" name="question" placeholder="Enter your input" value="{{ question }}">
+                <button type="submit">Chat</button>
+            </form>
+        </div>
+
+        {% if answer %}
+        <div class="result-box">
+            <h2>AI</h2>
+            <p>{{ answer }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

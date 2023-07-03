@@ -6,55 +6,34 @@ from search import search_topic
 app = Flask(__name__)
 
 
-# Main program
-def main():
-    topic = input('Enter a topic: ')
-
-    # Search the internet for information about the topic
-    title, link = search_topic(topic)
-
-    if title and link:
-        print(f"Top search result: {title}")
-        print(f"Link: {link}")
-
-        # Allow the user to ask questions about the topic
-        while True:
-            question = input('Ask a question (or type "exit" to quit): ')
-
-            if question.lower() == 'exit':
-                break
-
-            # Answer the user's question using the search result as context
-            answer = answer_question(question, title)
-
-            print(f"Answer: {answer}")
-    else:
-        print('Failed to retrieve search results')
-
-
-# @app.route('/', methods=['GET', 'POST'])
-# def index():
-#     user_input = ''
-#     processed_text = ''
-#     if request.method == 'POST':
-#         user_input = request.form['user_input']
-#         processed_text = user_input.upper()
-#     return render_template('index.html', user_input=user_input, processed_text=processed_text)
-
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    return render_template('index.html')
 
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
     topic = ''
     data = {}
-    processed_text = ''
     if request.method == 'POST':
         topic = request.form['user_input']
 
         # Search the internet for information about the topic
         data = search_topic(topic)
 
-        processed_text = topic.upper()
-    return render_template('index.html', user_input=topic, data=data, processed_text=processed_text)
+    return render_template('search.html', user_input=topic, data=data)
+
+
+@app.route('/chat', methods=['GET', 'POST'])
+def chat():
+    question = ''
+    answer = ''
+    if request.method == 'POST':
+        # Allow the user to ask questions about the topic
+        question = request.form['question']
+        # Answer the user's question using the search result as context
+        answer = answer_question(question)
+    return render_template('chat.html', question=question, answer=answer)
 
 
 if __name__ == '__main__':

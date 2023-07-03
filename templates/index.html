@@ -1,41 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <div class="container">
-        <h1>Welcome to My Web Application</h1>
-        <div class="input-box">
-            <h2>User Input</h2>
-            <form action="/" method="POST">
-                <input type="text" name="user_input" placeholder="Enter your input" value="{{ user_input }}">
-                <button type="submit">Submit</button>
-            </form>
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div>
+        <h2>Searching and Chatting App</h2>
+        <div>
+            <button><a href="{{ url_for('search') }}">Search</a></button>
+            <button><a href="{{ url_for('chat') }}">Chat</a></button>
         </div>
-
-        {% if data %}
-            {% for k, v in data.items() %}
-                <div class="result-box">
-                    <a href="{{ v }}" target="_blank"><h2>{{ k }}</h2></a>
-                    <p>{{ v }}</p>
-                </div>
-            {% endfor %}
-        {% endif %}
-
-{#        {% if processed_text %}#}
-{#        <div class="result-box">#}
-{#            <h2>Result</h2>#}
-{#            <p>Your input: {{ processed_text }}</p>#}
-{#        </div>#}
-{#        {% endif %}#}
     </div>
-
-
-{#    <script async src="https://cse.google.com/cse.js?cx=e2d4a04bb84fc4f14">#}
-{#    </script>#}
-{#    <div class="gcse-search"></div>#}
-</body>
-</html>
+{% endblock %}

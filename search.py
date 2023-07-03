@@ -23,9 +23,11 @@ def search_topic(topic):
     if response.status_code == 200:
         # Extract relevant information from the search results
         # Extract the title and URL of each search result
+
         # 1. get items list from the response json dictionary
         # 2. get dictionary from the item lists
         # 3. collect title and link from each dictionary
+        # return the dictionary object
 
         data = {}
         for item in response.json()['items']:
