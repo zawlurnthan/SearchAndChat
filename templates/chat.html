@@ -5,19 +5,18 @@
 {% block content %}
 
     <div class="container">
-        <h1>Chatting with AI</h1>
-        <div class="input-box">
-            <h2>You</h2>
+        <h1 class="pb-3">Chatting with AI</h1>
+        <div>
             <form action="/chat" method="POST">
-                <input type="text" name="question" placeholder="Enter your input" value="{{ question }}">
-                <button type="submit">Chat</button>
+                <input class="w-full py-4 px-6 rounded-xl border" type="text" name="question" placeholder="Enter your input" value="{{ question }}">
+                <button class="mt-6 py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white" type="submit">Chat</button>
             </form>
         </div>
 
         {% if answer %}
-        <div class="result-box">
-            <h2>AI</h2>
-            <p>{{ answer }}</p>
+        <div class="p-5">
+            <h2 class="pb-3">AI</h2>
+            <p class="py-5 px-5 rounded-xl bg-gray-200">{{ answer }}</p>
         </div>
         {% endif %}
     </div>

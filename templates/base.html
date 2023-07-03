@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewpoint" content="with=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
 
-    <nav>
-        <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('search') }}">Search</a></li>
-            <li><a href="{{ url_for('chat') }}">Chat</a></li>
-        </ul>
+    <nav class="py-6 px-6 flex justify-between items_center border-b border-gray-200">
+        <a href="/" class="text-xl font-semibold">Searching and Chatting App</a>
+        <div class="space-x-6">
+            <a href="{{ url_for('index') }}" class="text-lg font-semibold hover:text-gray-500">Home</a>
+            <a href="{{ url_for('search') }}" class="text-lg font-semibold hover:text-gray-500">Search</a>
+            <a href="{{ url_for('chat') }}" class="text-lg font-semibold hover:text-gray-500">Chat</a>
+        </div>
     </nav>
 
-    <main>
+    <main class="px-6 py-6">
         {% block content %}{% endblock %}
     </main>
 
-    <footer>
-        <p>&copy; 2023 My Flask Application. All rights reserved.</p>
+    <footer class="py-6 px-6 flex justify-between bg-gray-800">
+        <p class="mb-5 font-semibold text-gray-400">&copy; <script>document.write( new Date().getFullYear() );</script> My Flask Application. All rights reserved.</p>
     </footer>
 </body>
 </html>

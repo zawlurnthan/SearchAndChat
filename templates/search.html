@@ -3,30 +3,22 @@
 {% block title %}Searching{% endblock %}
 
 {% block content %}
-
     <div class="container">
-        <h1>Search by Google</h1>
-        <div class="input-box">
-            <h2>User Input</h2>
+        <h1 class="pb-3">Search by Google</h1>
+        <div>
             <form action="/search" method="POST">
-                <input type="text" name="user_input" placeholder="Enter your topic" value="{{ user_input }}">
-                <button type="submit">Search</button>
+                <input class="w-full py-4 px-6 rounded-xl border" type="text" name="user_input" placeholder="Enter your topic" value="{{ user_input }}">
+                <button class="mt-6 py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white" type="submit">Search</button>
             </form>
         </div>
 
         {% if data %}
             {% for title, link in data.items() %}
-                <div class="result-box">
+                <div class="py-5 px-3 rounded-x">
                     <a href="{{ link }}" target="_blank"><h2>{{ title }}</h2></a>
                     <p>{{ link }}</p>
                 </div>
             {% endfor %}
         {% endif %}
     </div>
-
-
-{#    <script async src="https://cse.google.com/cse.js?cx=e2d4a04bb84fc4f14">#}
-{#    </script>#}
-{#    <div class="gcse-search"></div>#}
-
 {% endblock %}
