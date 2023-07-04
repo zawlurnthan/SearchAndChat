@@ -42,9 +42,9 @@ def chat():
             # Answer the user's question using the search result as context
             answer = answer_question(question)
 
-            # create a data structure to keep chatting
+            # record all chats to display back on the screen
             data.update({question: answer})
-    return render_template('chat.html', question=question, data=data, answer=answer)
+    return render_template('chat.html', question=question, data=data)
 
 
 if __name__ == '__main__':
