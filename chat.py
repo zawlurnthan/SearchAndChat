@@ -10,7 +10,7 @@ openai.api_key = os.environ['OPENAI_API_KEY']
 def answer_question(question):  # context
     # Set the GPT-3.5 model parameters
     model = "text-davinci-003"
-    max_tokens = 50
+    max_tokens = 2000
 
     # Generate an answer to the question using the GPT-3.5 model
     response = openai.Completion.create(
@@ -23,4 +23,5 @@ def answer_question(question):  # context
     )
     # Extract the answer from the response
     return response.choices[0].text.strip()
+
 

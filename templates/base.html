@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+    {# Navber Section #}
     <nav class="py-6 px-6 flex justify-between items_center border-b border-gray-200">
         <a href="/" class="text-xl font-semibold">Searching and Chatting App</a>
         <div class="space-x-6">
@@ -18,10 +18,12 @@
         </div>
     </nav>
 
+    {# Main content #}
     <main class="px-6 py-6">
         {% block content %}{% endblock %}
     </main>
 
+    {# Footer Section #}
     <footer class="py-6 px-6 flex justify-between bg-gray-800">
         <p class="mb-5 font-semibold text-gray-400">&copy; <script>document.write( new Date().getFullYear() );</script> My Flask Application. All rights reserved.</p>
     </footer>
