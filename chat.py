@@ -3,7 +3,7 @@ import os
 import openai
 
 # Set up OpenAI API credentials
-openai.api_key = os.environ['OPENAI_API_KEY']
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
 # Function to answer user questions using OpenAI GPT-3.5 model

@@ -6,10 +6,10 @@ import requests
 
 def search_topic(topic):
     # Set Google Search API key
-    api_key = os.environ['GOOGLE_API_KEY']
+    api_key = os.getenv('GOOGLE_API_KEY')
 
     # Set the search engine ID
-    engine_id = os.environ['SEARCH_ENGINE_ID']
+    engine_id = os.getenv('SEARCH_ENGINE_ID')
 
     # Format the topic for search query
     query = topic.replace(' ', '+')
